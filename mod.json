@@ -1,5 +1,5 @@
 {
-	"geode": "4.3.1",
+	"geode": "4.5.0",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -10,13 +10,23 @@
 	"name": "Dash Orb Practice Fix",
 	"version": "v1.0.0",
 	"developer": "RGC Exists",
-	"description": "Makes it so you can place checkpoints while holding a dash orb, and it lets you continue holding dash orbs after you respawn from those checkpoints.",
+	"description": "Makes it so you can place checkpoints while holding a dash orb, and lets you continue holding dash orbs after you respawn from those checkpoints.",
 	"settings": {
 		"affect-platformer-checkpoints": {
 			"type": "bool",
 			"name": "Affect Platformer Checkpoints",
 			"description": "Changes whether or not the mod affects the placeable checkpoint objects used in platformer levels.",
 			"default": false
+		}
+	},
+	"incompatibilities": {
+		"sabe.platformersaves": {
+			"importance": "breaking",
+			"version": ">=1.0.0"
+		},
+		"sabe.persistenceapi": {
+			"importance": "breaking",
+			"version": ">=1.0.0"
 		}
 	}
 }
