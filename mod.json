@@ -3,7 +3,8 @@
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
-		"mac": "2.2074"
+		"mac": "2.2074",
+		"ios": "2.2074"
 	},
 	"id": "rgc_exists.dash_orb_practice_fix",
 	"name": "Dash Orb Practice Fix",
