@@ -11,6 +11,8 @@
 	"version": "v1.0.0",
 	"developer": "RGC Exists",
 	"description": "Makes it so you can place checkpoints while holding a dash orb, and lets you continue holding dash orbs after you respawn from those checkpoints.",
+	"links": { "source": "https://github.com/rgc-exists/Dash-Orb-Practice-Fix" },
+	"tags": [ "gameplay", "offline", "enhancement", "bugfix" ],
 	"settings": {
 		"affect-platformer-checkpoints": {
 			"type": "bool",

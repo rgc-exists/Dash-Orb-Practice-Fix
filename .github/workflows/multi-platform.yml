@@ -35,12 +35,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+  
+      - name: Update LLVM Windows
+        run: choco upgrade llvm
+        if: matrix.config.os == 'windows-latest'
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
         with:
+          export-pdb: true
           combine: true
           target: ${{ matrix.config.target }}
+          ccache-variant: ccache
+          build-config: ${{matrix.config.build_type || 'Release'}}
 
   package:
     name: Package builds
