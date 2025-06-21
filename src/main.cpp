@@ -26,7 +26,7 @@ class $modify(PlayLayer) {
 		PlayerObject* player2 = GJBaseGameLayer::get()->m_player2;
 
 		if (player1 == nullptr || player1->m_isDead) {
-			return nullptr;
+			return PlayLayer::markCheckpoint();
 		}
 
 		bool p1_dashing = player1->m_isDashing;
