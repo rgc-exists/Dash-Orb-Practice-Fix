@@ -8,7 +8,7 @@
 	},
 	"id": "rgc_exists.dash_orb_practice_fix",
 	"name": "Dash Orb Practice Fix",
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"developer": "RGC Exists",
 	"description": "Makes it so you can place checkpoints while holding a dash orb, and lets you continue holding dash orbs after you respawn from those checkpoints.",
 	"links": { "source": "https://github.com/rgc-exists/Dash-Orb-Practice-Fix" },
