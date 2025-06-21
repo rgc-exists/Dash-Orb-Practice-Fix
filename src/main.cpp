@@ -21,30 +21,35 @@ class $modify(PlayLayer) {
 	}
 
 	CheckpointObject* markCheckpoint() {
-
-		PlayerObject* player1 = GJBaseGameLayer::get()->m_player1;
-		PlayerObject* player2 = GJBaseGameLayer::get()->m_player2;
-
-		if (player1 == nullptr || player1->m_isDead) {
-			return PlayLayer::markCheckpoint();
-		}
-
+		PlayerObject* player1 = this->m_player1;
+		PlayerObject* player2 = this->m_player2;
+		if (!player1 || player1->m_isDead) return nullptr; 
+		/*
+		 Since RobTop made it so you CAN'T PLACE CHECKPOINTS while dashing instead of fixing it.
+		 This is the Workaround so the game actually places the checkpoint,
+		*/
 		bool p1_dashing = player1->m_isDashing;
-		player1->m_isDashing = false; // Workaround so the game actually places the checkpoint,
-		bool p2_dashing = false;      // Since RobTop made it so you CAN'T PLACE CHECKPOINTS while dashing instead of fixing it. :|
+		bool p2_dashing = false;
+
+		player1->m_isDashing = false;
 		if (player2) {
 			p2_dashing = player2->m_isDashing;
 			player2->m_isDashing = false;
 		}
 
 		CheckpointObject* checkpoint = PlayLayer::markCheckpoint();
-
+		// this restores state of dashing for both players
 		player1->m_isDashing = p1_dashing;
-		updatePlayerCP(checkpoint->m_player1Checkpoint, player1);
+		if (player2) player2->m_isDashing = p2_dashing;
+		// checks if it did create the checkpoint
+		if (checkpoint) {
+			if (checkpoint->m_player1Checkpoint) {
+				updatePlayerCP(checkpoint->m_player1Checkpoint, player1);
+			}
 
-		if (player2 && checkpoint->m_player2Checkpoint) {
-			player2->m_isDashing = p2_dashing;
-			updatePlayerCP(checkpoint->m_player2Checkpoint, player2);
+			if (checkpoint->m_player2Checkpoint) {
+				updatePlayerCP(checkpoint->m_player2Checkpoint, player2);
+			}
 		}
 
 		return checkpoint;
